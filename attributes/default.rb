@@ -1,0 +1,7 @@
+default[:openstack][:roles][:database] = 'openstack-database'
+default[:openstack][:roles][:keystone] = 'keystone'
+default[:openstack][:roles][:ampq] = 'openstack-ampq'
+default[:openstack][:roles][:glance] = 'glance-api'
+default[:openstack][:roles][:quantum] = 'quantum'
+default[:openstack][:roles][:novnc] = 'nova-novncproxy'
+default[:openstack][:roles][:cinder] = 'cinder-api'

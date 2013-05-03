@@ -1,0 +1,6 @@
+export OS_TENANT_NAME=admin
+export OS_USERNAME=admin
+export OS_PASSWORD=<%= @keystone_node[:keystone][:admin_passwd] %>
+export OS_AUTH_URL="http://<%= @keystone_node[:fqdn] %>:5000/v2.0/"
+export SERVICE_ENDPOINT="http://<%= @keystone_node[:fqdn] %>:35357/v2.0"
+export SERVICE_TOKEN=<%= @keystone_node[:keystone][:admin_token] %>
