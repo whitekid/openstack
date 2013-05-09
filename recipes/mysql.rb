@@ -1,8 +1,16 @@
+::Chef::Recipe.send(:include, Opscode::OpenSSL::Password)
+
 connection_info = {
 	:host => 'localhost',
 	:username => 'root',
 	:password => node[:mysql][:server_root_password],
 }
+
+node['mysql']['client']['packages'].each do |pkg|
+	package pkg do
+		action :nothing
+	end.run_action(:upgrade)
+end
 
 chef_gem 'mysql'
 

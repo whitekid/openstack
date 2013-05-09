@@ -1,3 +1,5 @@
+::Chef::Recipe.send(:include, Opscode::OpenSSL::Password)
+
 node.set_unless[:openstack][:rabbitmq][:password] = secure_password
 
 execute 'change rabbitmq password' do
