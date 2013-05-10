@@ -1,10 +1,18 @@
 #!/bin/bash
 PURGE='apt-get -y --auto-remove purge'
 
-$PURGE keystone nova-common quantum-common openstack-dashboard apache2 cinder-common glance-common openvswitch-common mysql-common
+$PURGE python-keystoneclient
+$PURGE nova-common
+$PURGE quantum-common
+$PURGE openstack-dashboard apache2
+$PURGE cinder-common
+$PURGE glance-common
+$PURGE openvswitch-common
+$PURGE mysql-common
+$PURGE rabbitmq-server erlang-base
 $PURGE qemu-kvm
+$PURGE ntp
 
-rm -rf /var/lib/mysql /var/cache/local/preseeding/mysql-server.seed
 rm -rf /etc/keystone
 rm -rf /var/lib/mysql
 rm -rf /etc/mysql
@@ -18,6 +26,7 @@ rm -rf /etc/openvswitch
 rm -rf /etc/apt/sources.list.d/openstack*
 rm -rf /etc/cinder
 losetup -d /dev/loop0
+rm -rf /var/lib/nova
 rm -rf /var/lib/instances
 rm -rf /var/lib/cinder
 rm -rf /var/lib/cinder-volumes
@@ -26,3 +35,5 @@ rm -rf /var/chef/cache
 
 ifconfig eth1 0 down
 ifconfig eth2 0 down
+
+service chef-client stop

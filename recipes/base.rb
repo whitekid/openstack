@@ -33,3 +33,10 @@ cookbook_file "/root/stack/clear.sh" do
 	group "root"
 	mode 00755
 end
+
+cookbook_file "/root/stack/vm_create.sh" do
+	source "vm_create.sh"
+	owner "root"
+	group "root"
+	mode 00755
+end
